@@ -10,25 +10,15 @@ const TaskForm = (props) => {
   const [taskTime, setTaskTime] = useState("");
 
   useEffect(() => {
-    console.log(props.title);
+    //console.log(props.title);
     if (props.title === "edit") {
       setTaskName(props.task.name);
       setSelectedDate(props.task.date.split("T")[0]);
       setTaskDescription(props.task.description);
       setTaskTime(props.task.time);
     }
-  });
-  // [
-  //   setTaskName,
-  //   setSelectedDate,
-  //   setTaskDescription,
-  //   setTaskTime,
-  //   props.task.name,
-  //   props.task.date,
-  //   props.task.description,
-  //   props.task.time,
-  //   props.title,
-  // ]
+  }, [setTaskName, setSelectedDate, setTaskDescription, setTaskTime]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const todo = {
